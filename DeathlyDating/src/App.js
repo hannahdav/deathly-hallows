@@ -7,6 +7,7 @@
  */
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import { createAppContainer, createStackNavigator } from 'react-navigation';
 
 import WelcomeScreen from './components/WelcomeScreen';
 import SwipeScreen from './components/WelcomeScreen';
