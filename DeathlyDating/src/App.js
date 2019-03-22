@@ -8,17 +8,28 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
+import WelcomeScreen from './components/WelcomeScreen';
+import SwipeScreen from './components/WelcomeScreen';
+
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <AppContainer/>
     );
   }
 }
+
+const Root = createStackNavigator(
+    {
+        Welcome: { screen: HomeScreen },
+        Swipe: { screen: SwipeScreen }
+    },
+    {
+        initialRouteName: 'Welcome'
+    }
+);
+
+const AppContainer = createAppContainer(Root);
 
 const styles = StyleSheet.create({
   container: {
