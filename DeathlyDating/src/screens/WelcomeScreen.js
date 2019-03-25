@@ -6,7 +6,7 @@
  * @flow
  */
 import React, {Component} from 'react';
-import { Container, Content, H1, Form, Item, Input, Label, Picker, Button, Text} from 'native-base';
+import { Container, Content, H1, Form, Item, Input, Label, Picker, Button, Text, Textarea} from 'native-base';
 export default class WelcomeScreen extends Component {
   constructor(props) {
     super(props);

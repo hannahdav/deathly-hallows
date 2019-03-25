@@ -9,24 +9,22 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 
-import WelcomeScreen from './components/WelcomeScreen';
-import SwipeScreen from './components/WelcomeScreen';
+import WelcomeScreen from './screens/WelcomeScreen';
 
 export default class App extends Component {
   render() {
     return (
-      <AppContainer/>
+        <AppContainer/>
     );
   }
 }
 
 const Root = createStackNavigator(
     {
-        Welcome: { screen: HomeScreen },
-        Swipe: { screen: SwipeScreen }
+      Welcome: { screen: WelcomeScreen },
     },
     {
-        initialRouteName: 'Welcome'
+      initialRouteName: 'Welcome'
     }
 );
 

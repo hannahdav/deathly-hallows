@@ -9,10 +9,7 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { Container, Header, Content} from 'native-base';
 
-import WelcomeScreen from './components/WelcomeScreen';
-import SwipeScreen from './components/WelcomeScreen';
-
-export default class WelcomeScreen extends Component {
+export default class SwipeScreen extends Component {
   render() {
     return (
         <Container>
