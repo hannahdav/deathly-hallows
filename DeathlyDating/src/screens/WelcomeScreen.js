@@ -5,75 +5,119 @@
  * @format
  * @flow
  */
-import React, {Component} from 'react';
-import { Container, Content, H1, Form, Item, Input, Label, Picker, Button, Text, Textarea} from 'native-base';
+import React, { Component } from 'react';
+import { View, StatusBar, ImageBackground } from 'react-native';
+import { Container, Content, H1, Form, Item, Input, Label, Picker, Button, Text, Textarea, Icon } from 'native-base';
+
+import styles from '../styles/DeathlyStyles';
 export default class WelcomeScreen extends Component {
-  constructor(props) {
-    super(props);
+	static navigationOptions = {
+		header: null
+	}
 
-    this.state = {
-      firstName: '',
-      lastname: '',
-      email: '',
-      phone: '', 
-      interestedIn: null,
-      bio: ''
-    }
-  }
+	constructor(props) {
+		super(props);
 
-  render() {
-    return (
-        <Container>
-            <Content>
-              <H1>Deathly Dating</H1>
-              <Form>
-                <Item floatingLabel>
-                  <Label>First name</Label> 
-                  <Input/>
-                </Item>
-                <Item floatingLabel>
-                  <Label>Last name</Label> 
-                  <Input/>
-                </Item>
-                <Item floatingLabel>
-                  <Label>Email</Label> 
-                  <Input/>
-                </Item>
-                <Item floatingLabel>
-                  <Label>Phone Number</Label> 
-                  <Input/>
-                </Item>
-                <Item picker inlineLabel>
-                  <Label>Interested in</Label>
-                  <Picker 
-                    mode="dropdown"
-                    style={{ width: undefined }}
-                    placeholder="Select"
-                    placeholderStyle={{ color: "#bfc6ea" }}
-                    placeholderIconColor="#007aff"
-                    selectedValue={this.state.interestedIn}
-                    onValueChange={(val) => this.setState({ interestedIn: val })}
-                  >
-                    <Picker.Item label="Men" value="key0" />
-                    <Picker.Item label="Women" value="key1" />
-                    <Picker.Item label="Both" value="key2" />
-                  </Picker>
-                </Item>
-                <Textarea bordered
-                  rowSpan={5}  
-                  placeholder="Textarea" 
-                  onValueChange={(val) => this.setState({ bio: val })}
-                  />
-              </Form>
-              <Button primary
-                onPress={() => this.props.navigation.navigate('Swipe')}
-              >
-                <Text>
-                  Submit
-                </Text>
-              </Button>
-            </Content>
-        </Container>
-    );
-  }
+		this.state = {
+			firstName: '',
+			lastName: '',
+			email: '',
+			phone: '',
+			interestedIn: null,
+			hogwartsHouse: null,
+			bio: ''
+		}
+	}
+
+	render() {
+		return (
+			<Container>
+				<View>
+  					<StatusBar barStyle="light-content" />
+				</View>
+				<Content contentContainerStyle={styles.container}>
+					<ImageBackground source={require('../resources/tree.png')} style={styles.tree}>
+						<View style={{ padding: 30 }}>
+							<H1 style={styles.logo}>Deathly Dating </H1>
+							<Form>
+								<Item rounded style={styles.formItem}>
+									<Input 
+										autoFocus={true}
+										placeholder={'First Name'}
+										value={this.state.firstName}
+										onChangeText={(val) => this.setState({ firstName: val })}
+									/>
+								</Item>
+								<Item rounded style={styles.formItem}>
+									<Input
+										placeholder={'Last Name'}
+										value={this.state.lastName}
+										onChangeText={(val) => this.setState({ lastName: val })}
+									/>
+								</Item>
+								<Item rounded style={styles.formItem}>
+									<Input 
+										placeholder={'Email Address'}
+										value={this.state.email}
+										onChangeText={(val) => this.setState({ email: val })}
+									/>
+								</Item>
+								<Item rounded style={styles.formItem}>
+									<Input
+										placeholder={'Phone Number'}
+										value={this.state.phone}
+										onChangeText={(val) => this.setState({ phone: val })}
+									/>
+								</Item>
+								<Item rounded picker style={styles.formInputPicker}>
+									<Picker
+										mode="dropdown"
+										iosIcon={<Icon name="arrow-down" />}
+										placeholder="Interested in"
+										placeholderStyle={{ color: "#4d4d4d" }}
+										placeholderIconColor="#007aff"
+										selectedValue={this.state.interestedIn}
+										onValueChange={(val) => this.setState({ interestedIn: val })}
+									>
+										<Picker.Item label="Men" value="M" />
+										<Picker.Item label="Women" value="W" />
+										<Picker.Item label="Both" value="B" />
+									</Picker>
+								</Item>
+								<Item rounded picker style={styles.formInputPicker}>
+									<Picker
+										mode="dropdown"
+										iosIcon={<Icon name="arrow-down" />}
+										placeholder="Hogwarts house"
+										placeholderStyle={{ color: "#4d4d4d" }}
+										placeholderIconColor="#007aff"
+										selectedValue={this.state.hogwartsHouse}
+										onValueChange={(val) => this.setState({ hogwartsHouse: val })}
+									>
+										<Picker.Item label="Gryffindor" value="gryf" />
+										<Picker.Item label="Hufflepuff" value="huff" />
+										<Picker.Item label="Ravenclaw" value="rave" />
+										<Picker.Item label="Slytherin" value="slyt" />
+									</Picker>
+								</Item>
+								<Textarea bordered rounded
+									rowSpan={5}
+									placeholder="Bio (optional)"
+									onChangeText={(val) => this.setState({ bio: val })}
+									style={styles.formInputTextArea}
+									value={this.state.bio}
+								/>
+							</Form>
+							<Button primary
+								style={styles.centeredPadded}
+								onPress={() => this.props.navigation.navigate('Swipe')}
+							>
+								<Text>Save</Text>
+							</Button>
+						</View>
+					</ImageBackground>
+				</Content>
+			</Container>
+		);
+	}
 }

@@ -6,10 +6,10 @@
  * @flow
  */
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 
 import WelcomeScreen from './screens/WelcomeScreen';
+import SwipeScreen from './screens/SwipeScreen';
 
 export default class App extends Component {
   render() {
@@ -22,6 +22,7 @@ export default class App extends Component {
 const Root = createStackNavigator(
     {
       Welcome: { screen: WelcomeScreen },
+      Swipe: { screen: SwipeScreen }
     },
     {
       initialRouteName: 'Welcome'
@@ -29,22 +30,3 @@ const Root = createStackNavigator(
 );
 
 const AppContainer = createAppContainer(Root);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
