@@ -19,7 +19,7 @@ let ApiService = class ApiService {
 
   getPerson(){
     return `${this.apiLocation}`;
-  }   
+  }
 
   getPeopleByGender(gender) {
     return `${this.apiLocation}//?gender=${gender}&results=1000`;
@@ -29,6 +29,9 @@ let ApiService = class ApiService {
     return `${this.apiLocation}//?results=1000`;
 
   }
+	getBio(){
+		return 'https://loripsum.net/api/1/plaintext/';
+	}
 }
 
 // Create a Singleton

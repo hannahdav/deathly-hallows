@@ -11,16 +11,17 @@ import { Person } from '../models/person';
 let PersonService = class PersonService {
 	constructor() {
 	}
-    
+
     getPersonByGender(gender) {
         return new Promise((resolve, reject) => {
-            fetch(apiService.getPersonByGender(gender), 
+            fetch(apiService.getPersonByGender(gender),
             {
                 dataType: 'json'
             })
             .then((response) => response.json())
             .then((response) => {
-                let person = new Person(response[0].name.first, response[0].name.last, response[0].picture.large, response[0].dob.age, response[0].gender, response[0].id.value);
+                bio = this.getBio();
+                let person = new Person(response[0].name.first, response[0].name.last, response[0].picture.large, response[0].dob.age, response[0].gender, response[0].id.value, bio);
                 resolve(person);
             })
             .catch((error) => {
@@ -32,13 +33,14 @@ let PersonService = class PersonService {
 
     getRandomPerson() {
         return new Promise((resolve, reject) => {
-            fetch(apiService.getPerson(), 
+            fetch(apiService.getPerson(),
             {
                 dataType: 'json'
             })
             .then((response) => response.json())
             .then((response) => {
-                let person = new Person(response[0].name.first, response[0].name.last, response[0].picture.large, response[0].dob.age, response[0].gender, response[0].id.value);
+                bio = this.getBio();
+                let person = new Person(response[0].name.first, response[0].name.last, response[0].picture.large, response[0].dob.age, response[0].gender, response[0].id.value, bio);
                 resolve(person);
             })
             .catch((error) => {
@@ -50,7 +52,7 @@ let PersonService = class PersonService {
 
     getRandomPeople() {
         return new Promise((resolve, reject) => {
-            fetch(apiService.getPeople(), 
+            fetch(apiService.getPeople(),
             {
                 dataType: 'json'
             })
@@ -58,7 +60,8 @@ let PersonService = class PersonService {
             .then((response) => {
                 let people = [];
                 response.results.forEach(element => {
-                    people.push(new Person(element.name.first, element.name.last, element.picture.large, element.dob.age, element.gender, element.id.value));
+                    bio = this.getBio();
+                    people.push(new Person(element.name.first, element.name.last, element.picture.large, element.dob.age, element.gender, element.id.value, bio));
                     resolve(people);
                 });
             })
@@ -71,7 +74,7 @@ let PersonService = class PersonService {
 
     getPeopleByGender(gender) {
         return new Promise((resolve, reject) => {
-            fetch(apiService.getPeopleByGender(gender), 
+            fetch(apiService.getPeopleByGender(gender),
             {
                 dataType: 'json'
             })
@@ -79,7 +82,8 @@ let PersonService = class PersonService {
             .then((response) => {
                 let people = [];
                 response.results.forEach(element => {
-                    people.push(new Person(element.name.first, element.name.last, element.picture.large, element.dob.age, element.gender, element.id.value));
+                    bio = this.getBio();
+                    people.push(new Person(element.name.first, element.name.last, element.picture.large, element.dob.age, element.gender, element.id.value, bio));
                     resolve(people);
                 });
             })
@@ -90,6 +94,20 @@ let PersonService = class PersonService {
         });
 
     }
+
+		getBio(){
+			return new Promise((resolve,reject)=>{
+				fetch(apiService.getBio())
+				.then((response) => response.json())
+				.then((response) => {
+					resolve(response);					
+				})
+				.catch((error) => {
+						console.error(error);
+						reject(error);
+				})
+			})
+		}
 
 
 };
