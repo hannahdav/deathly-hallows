@@ -2,7 +2,7 @@ import { StyleSheet, Platform } from 'react-native';
 
 const styles = StyleSheet.create({
 	header: {
-	   	height: 40,
+		height: 40,
 		backgroundColor:  '#1f0318', //#110609,
 		color: 'white'
 	},
@@ -56,10 +56,14 @@ const styles = StyleSheet.create({
 		width: '98%',
 		alignSelf: 'center'
 	},
-    centeredPadded: {
+		saveButton: {
 		padding: 10,
 		margin: 20,
 		alignSelf: 'center',
-    }
+		backgroundColor: '#29274c',
+		shadowOffset: { width: 3, height: 3 },
+		color: 'white',
+		shadowOpacity: 0.4
+	}
 });
 export default styles;

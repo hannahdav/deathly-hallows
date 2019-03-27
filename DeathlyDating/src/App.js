@@ -10,7 +10,6 @@ import { createAppContainer, createStackNavigator } from 'react-navigation';
 
 import WelcomeScreen from './screens/WelcomeScreen';
 import SwipeScreen from './screens/SwipeScreen';
-
 export default class App extends Component {
   render() {
     return (

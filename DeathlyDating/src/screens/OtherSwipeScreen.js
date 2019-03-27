@@ -10,7 +10,6 @@ import {Platform, StyleSheet, Text, View, Image} from 'react-native';
 import {
     Container,
     Header,
-    View,
     DeckSwiper,
     Card,
     CardItem,
