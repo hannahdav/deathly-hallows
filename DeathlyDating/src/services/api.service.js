@@ -20,6 +20,15 @@ let ApiService = class ApiService {
   getPerson(){
     return `${this.apiLocation}`;
   }   
+
+  getPeopleByGender(gender) {
+    return `${this.apiLocation}//?gender=${gender}&results=1000`;
+  }
+
+  getPeople() {
+    return `${this.apiLocation}//?results=1000`;
+
+  }
 }
 
 // Create a Singleton

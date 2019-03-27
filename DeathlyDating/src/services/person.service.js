@@ -48,6 +48,49 @@ let PersonService = class PersonService {
         })
     }
 
+    getRandomPeople() {
+        return new Promise((resolve, reject) => {
+            fetch(apiService.getPeople(), 
+            {
+                dataType: 'json'
+            })
+            .then((response) => response.json())
+            .then((response) => {
+                let people = [];
+                response.results.forEach(element => {
+                    people.push(new Person(element.name.first, element.name.last, element.picture.large, element.dob.age, element.gender, element.id.value));
+                    resolve(people);
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                reject(error);
+            })
+        });
+    }
+
+    getPeopleByGender(gender) {
+        return new Promise((resolve, reject) => {
+            fetch(apiService.getPeopleByGender(gender), 
+            {
+                dataType: 'json'
+            })
+            .then((response) => response.json())
+            .then((response) => {
+                let people = [];
+                response.results.forEach(element => {
+                    people.push(new Person(element.name.first, element.name.last, element.picture.large, element.dob.age, element.gender, element.id.value));
+                    resolve(people);
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                reject(error);
+            })
+        });
+
+    }
+
 
 };
 
