@@ -110,7 +110,7 @@ export default class WelcomeScreen extends Component {
 							</Form>
 							<Button primary
 								style={styles.saveButton}
-								onPress={() => this.props.navigation.navigate('Swipe')}
+								onPress={() => this.props.navigation.navigate('Swipe', {gender: this.state.interestedIn})}
 							>
 								<Text>Save</Text>
 							</Button>

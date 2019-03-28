@@ -14,10 +14,7 @@ let PersonService = class PersonService {
     
     getPersonByGender(gender) {
         return new Promise((resolve, reject) => {
-            fetch(apiService.getPersonByGender(gender), 
-            {
-                dataType: 'json'
-            })
+            fetch(apiService.getPersonByGender(gender))
             .then((response) => response.json())
             .then((response) => {
                 let person = new Person(response[0].name.first, response[0].name.last, response[0].picture.large, response[0].dob.age, response[0].gender, response[0].id.value);
@@ -32,10 +29,7 @@ let PersonService = class PersonService {
 
     getRandomPerson() {
         return new Promise((resolve, reject) => {
-            fetch(apiService.getPerson(), 
-            {
-                dataType: 'json'
-            })
+            fetch(apiService.getPerson())
             .then((response) => response.json())
             .then((response) => {
                 let person = new Person(response[0].name.first, response[0].name.last, response[0].picture.large, response[0].dob.age, response[0].gender, response[0].id.value);
@@ -50,10 +44,7 @@ let PersonService = class PersonService {
 
     getRandomPeople() {
         return new Promise((resolve, reject) => {
-            fetch(apiService.getPeople(), 
-            {
-                dataType: 'json'
-            })
+            fetch(apiService.getPeople())
             .then((response) => response.json())
             .then((response) => {
                 let people = [];
@@ -71,10 +62,7 @@ let PersonService = class PersonService {
 
     getPeopleByGender(gender) {
         return new Promise((resolve, reject) => {
-            fetch(apiService.getPeopleByGender(gender), 
-            {
-                dataType: 'json'
-            })
+            fetch(apiService.getPeopleByGender(gender))
             .then((response) => response.json())
             .then((response) => {
                 let people = [];
@@ -88,10 +76,7 @@ let PersonService = class PersonService {
                 reject(error);
             })
         });
-
     }
-
-
 };
 
 // Create a Singleton

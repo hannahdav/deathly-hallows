@@ -6,7 +6,7 @@
  * @flow
  */
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Image} from 'react-native';
+import {Platform, StyleSheet, View, Image} from 'react-native';
 import {
     Container,
     Header,
@@ -20,6 +20,8 @@ import {
     Icon,
     ListItem, Right
 } from 'native-base';
+
+import { personService } from '../services/person.service';
 
 export default class SwipeScreen extends Component {
 
@@ -44,13 +46,15 @@ export default class SwipeScreen extends Component {
     }
 
     _getPeople() {
-        movieService.getGenres()
+        
+            personService.getRandomPeople()
             .then(results => {
                 this.setState({ data: results });
             })
             .catch(error => {
                 console.log('Something went wrong!');
             })
+            
     }
 
     _renderPeople() {
@@ -66,11 +70,11 @@ export default class SwipeScreen extends Component {
         return (
             <Card style={{ elevation: 3 }}>
                 <CardItem cardBody>
-                    <Image style={{ height: 300, flex: 1 }} source={item.image} />
+                    <Image style={{ height: 300, flex: 1 }} source={item.img} />
                 </CardItem>
                 <CardItem>
                     <Icon name="heart" style={{ color: '#ED4A6A' }} />
-                    <Text>{item.name}</Text>
+                    <Text>{item.firstName}</Text>
                 </CardItem>
             </Card>
         );
