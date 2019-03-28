@@ -67,6 +67,26 @@ const styles = StyleSheet.create({
 		shadowOffset: { width: 3, height: 3 },
 		color: 'white',
 		shadowOpacity: 0.4
+	},
+	buttonContainer: { 
+		flexDirection: 'row', 
+		justifyContent: "center" 
+	},
+	depulso: {
+		backgroundColor: '#563635', 
+		marginHorizontal: 10
+	},
+	accio: {
+		backgroundColor: '#374a67'
+	},
+	buttonIcon: {
+		color: 'white',
+		fontSize: 25,
+		paddingHorizontal: 10
+	},
+	buttonText: {
+		fontWeight: '600', 
+		paddingLeft: -10
 	}
 });
 export default styles;

@@ -19,6 +19,7 @@ import {
     Button,
     Content
 } from 'native-base';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import personService from '../services/person.service';
 // import { Person } from '../models/person';
@@ -58,12 +59,18 @@ export default class SwipeScreen extends Component {
                             renderItem={this._renderItem}
                         />
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent: "space-around" }}>
-                        <Button warning>
-                            <Text>Depulso</Text>
+                    <View style={styles.buttonContainer}>
+                        <Button warning style={styles.depulso}>
+                            <AntDesign name='frowno' style={styles.buttonIcon}/>   
+                            <Text note style={styles.buttonText}>
+                                Depulso
+                            </Text>
                         </Button>
-                        <Button info>
-                            <Text>Accio</Text>
+                        <Button info style={styles.accio}>
+                        <AntDesign name='smileo' style={styles.buttonIcon}/>   
+                            <Text note style={styles.buttonText}>
+                                Accio
+                            </Text>
                         </Button>
                     </View>
                 </Content>
