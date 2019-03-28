@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 	tree: {
 		width: '100%', 
 		height: '100%', 
-		opacity: 0.65,
+		opacity: 0.75,
 		marginTop: 90,
 	},
 	formItem: { 
@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
 		backgroundColor: '#f2f2f2',
 		margin: 5,
 		paddingHorizontal: 8,
-		fontSize: 10
+		fontSize: 10,
+		alignSelf: 'center'
 	},
 	formInputPicker: { 
 		borderWidth: 1,
@@ -44,7 +45,9 @@ const styles = StyleSheet.create({
 		width: undefined,
 		marginVertical: 8,
 		paddingHorizontal: 8,
-		paddingVertical: 2
+		paddingVertical: 2,
+		alignSelf: 'center',
+		width: '97%'
 	},
 	formInputTextArea: { 
 		borderWidth: 1,
@@ -54,7 +57,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 12,
 		paddingVertical: 20,
 		width: '98%',
-		alignSelf: 'center'
+		alignSelf: 'center',
 	},
 		saveButton: {
 		padding: 10,

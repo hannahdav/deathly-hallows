@@ -59,7 +59,7 @@ export default class WelcomeScreen extends Component {
 									<Input
 										placeholder={'Email Address'}
 										value={this.state.email}
-										onChangeText={(val) => this.setState({ email: val })}
+										onChangeText={(val) => this.setState({ email: val.toLowerCase() })}
 									/>
 								</Item>
 								<Item rounded style={styles.formItem}>

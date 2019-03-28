@@ -89,11 +89,11 @@ export default class SwipeScreen extends Component {
         return (
             <Container>
                 <View>
-                    <StatusBar barStyle="light-content" />
+                    <StatusBar barStyle="dark-content" />
                 </View>
                 <Header transparent style={styles.header}>
                     <Left>
-                        <Button transparent light onPress={() => this.props.navigation.navigate('Welcome')}>
+                        <Button transparent dark onPress={() => this.props.navigation.navigate('Welcome')}>
                             <Icon name='arrow-back' />
                             <Text>Profile</Text>
                         </Button>
