@@ -22,12 +22,11 @@ let ApiService = class ApiService {
   }   
 
   getPeopleByGender(gender) {
-    return `${this.apiLocation}?gender=${gender}&results=65`;
+    return `${this.apiLocation}?gender=${gender}&results=5`;
   }
 
   getPeople() {
-    return `${this.apiLocation}?results=65`;
-
+    return `${this.apiLocation}?results=5`;
   }
 }
 

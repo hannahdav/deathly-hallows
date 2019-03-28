@@ -50,8 +50,8 @@ let PersonService = class PersonService {
                 let people = [];
                 response.results.forEach(element => {
                     people.push(new Person(element.name.first, element.name.last, element.picture.large, element.dob.age, element.gender, element.id.value));
-                    resolve(people);
                 });
+                resolve(people);
             })
             .catch((error) => {
                 console.error(error);
@@ -68,8 +68,8 @@ let PersonService = class PersonService {
                 let people = [];
                 response.results.forEach(element => {
                     people.push(new Person(element.name.first, element.name.last, element.picture.large, element.dob.age, element.gender, element.id.value));
-                    resolve(people);
                 });
+                resolve(people);
             })
             .catch((error) => {
                 console.error(error);

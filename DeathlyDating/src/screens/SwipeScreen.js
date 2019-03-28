@@ -16,16 +16,18 @@ import {
     Text,
     Left,
     Icon,
-    Button
+    Button,
+    Content
 } from 'native-base';
 
-import personService  from '../services/person.service';
+import personService from '../services/person.service';
+// import { Person } from '../models/person';
 import styles from '../styles/DeathlyStyles';
 
 export default class SwipeScreen extends Component {
     static navigationOptions = {
-		header: null
-	}
+        header: null
+    }
 
     constructor(props) {
         super(props);
@@ -37,9 +39,35 @@ export default class SwipeScreen extends Component {
 
     render() {
         return (
-            <View>
-                {this._renderPeople()}
-            </View>
+            <Container>
+                <Header transparent style={styles.header}>
+                    <View>
+                        <StatusBar barStyle="light-content" />
+                    </View>
+                    <Left>
+                        <Button transparent light onPress={() => this.props.navigation.navigate('Welcome')}>
+                            <Icon name='arrow-back' />
+                            <Text>Profile</Text>
+                        </Button>
+                    </Left>
+                </Header>
+                <Content contentContainerStyle={styles.container}>
+                    <View>
+                        <DeckSwiper
+                            dataSource={this.state.data}
+                            renderItem={this._renderItem}
+                        />
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: "space-around" }}>
+                        <Button warning>
+                            <Text>Depulso</Text>
+                        </Button>
+                        <Button info>
+                            <Text>Accio</Text>
+                        </Button>
+                    </View>
+                </Content>
+            </Container>
         );
     }
 
@@ -52,7 +80,7 @@ export default class SwipeScreen extends Component {
             case 'M':
                 personService.getPeopleByGender('male')
                     .then(results => {
-                        this.setState({ data: results });
+                        this.setState({ data: [...results] });
                     })
                     .catch(error => {
                         console.log('Something went wrong!');
@@ -60,7 +88,7 @@ export default class SwipeScreen extends Component {
             case 'W':
                 personService.getPeopleByGender('female')
                     .then(results => {
-                        this.setState({ data: results });
+                        this.setState({ data: [...results] });
                     })
                     .catch(error => {
                         console.log('Something went wrong!');
@@ -68,49 +96,26 @@ export default class SwipeScreen extends Component {
             default:
                 personService.getRandomPeople()
                     .then(results => {
-                        this.setState({ data: results });
+                        this.setState({ data: [...results] });
                     })
                     .catch(error => {
                         console.log('Something went wrong!');
                     })
-        }
-    }
 
-    _renderPeople() {
-        return (
-            <DeckSwiper
-                dataSource={this.state.data}
-                renderItem={this._renderItem}
-            />
-        );
+        }
     }
 
     _renderItem = ({ item }) => {
         return (
-            <Container>
-                <View>
-                    <StatusBar barStyle="dark-content" />
-                </View>
-                <Header transparent style={styles.header}>
-                    <Left>
-                        <Button transparent dark onPress={() => this.props.navigation.navigate('Welcome')}>
-                            <Icon name='arrow-back' />
-                            <Text>Profile</Text>
-                        </Button>
-                    </Left>
-                </Header>
-                <Content contentContainerStyle={styles.container}>
-                    <Card style={{ elevation: 3 }}>
-                        <CardItem cardBody>
-                            <Image style={{ height: 300, flex: 1 }} source={item.img} />
-                        </CardItem>
-                        <CardItem>
-                            <Icon name="heart" style={{ color: '#ED4A6A' }} />
-                            <Text>{item.firstName}</Text>
-                        </CardItem>
-                    </Card>
-                </Content>
-            </Container>
+            <Card style={{ elevation: 3 }}>
+                <CardItem cardBody>
+                    <Image style={{ height: 300, flex: 1 }} source={item.img} />
+                </CardItem>
+                <CardItem>
+                    <Icon name="heart" style={{ color: '#ED4A6A' }} />
+                    <Text>{item.firstName}</Text>
+                </CardItem>
+            </Card>
         );
     };
 }
