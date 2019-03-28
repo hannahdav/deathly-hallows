@@ -57,15 +57,9 @@
 		FAFEC91D32BF49B699A1BF2B /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CB6759577A641EA8E791BD9 /* rubicon-icon-font.ttf */; };
 		107ADF1FE4DB46EC90840141 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49F0C75621E74789AD5418B5 /* SimpleLineIcons.ttf */; };
 		35E9E16F0DA84C5EB0BE32FA /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 348CDF7821804C08BCFACE14 /* Zocial.ttf */; };
-<<<<<<< HEAD
-		20077F5A27A8402E9A159B6E /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A10B329B1C1243CF9588962D /* libRNGestureHandler.a */; };
-		4A40439D05F349D282314FCC /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 788D4C4C11C24280BA7FBCA2 /* libRNVectorIcons.a */; };
-		6E42F13D44654E588FBE0BB4 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D8846EB2CA43CA9AB6EB77 /* libRNVectorIcons-tvOS.a */; };
-=======
 		BEC1B10C20EF4B59806B9284 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD4993BC439348B5AD258CCC /* libRNGestureHandler.a */; };
 		80CA5994C6B341FEA1026FE0 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A00F43DB9AF14B69BE92FF41 /* libRNVectorIcons.a */; };
 		E4A94DDA082B4F7084737497 /* libRNVectorIcons-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB4A8F7FBEA4F94A05A3510 /* libRNVectorIcons-tvOS.a */; };
->>>>>>> Shelsey
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -391,19 +385,11 @@
 		9CB6759577A641EA8E791BD9 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		49F0C75621E74789AD5418B5 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		348CDF7821804C08BCFACE14 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-<<<<<<< HEAD
-		1A63D9C0F76B42E68B432C9D /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		A10B329B1C1243CF9588962D /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		318BFA387CB84C24906D2EB0 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; name = "RNVectorIcons.xcodeproj"; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		788D4C4C11C24280BA7FBCA2 /* libRNVectorIcons.a */ = {isa = PBXFileReference; name = "libRNVectorIcons.a"; path = "libRNVectorIcons.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-		A7D8846EB2CA43CA9AB6EB77 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; name = "libRNVectorIcons-tvOS.a"; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
-=======
 		890A876EB3FE4810B644D144 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; name = "RNGestureHandler.xcodeproj"; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		FD4993BC439348B5AD258CCC /* libRNGestureHandler.a */ = {isa = PBXFileReference; name = "libRNGestureHandler.a"; path = "libRNGestureHandler.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		561A9806AD4C4921841F0842 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; name = "RNVectorIcons.xcodeproj"; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		A00F43DB9AF14B69BE92FF41 /* libRNVectorIcons.a */ = {isa = PBXFileReference; name = "libRNVectorIcons.a"; path = "libRNVectorIcons.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		0AB4A8F7FBEA4F94A05A3510 /* libRNVectorIcons-tvOS.a */ = {isa = PBXFileReference; name = "libRNVectorIcons-tvOS.a"; path = "libRNVectorIcons-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
->>>>>>> Shelsey
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -432,13 +418,9 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-<<<<<<< HEAD
-				20077F5A27A8402E9A159B6E /* libRNGestureHandler.a in Frameworks */,
-				4A40439D05F349D282314FCC /* libRNVectorIcons.a in Frameworks */,
-=======
+
 				BEC1B10C20EF4B59806B9284 /* libRNGestureHandler.a in Frameworks */,
 				80CA5994C6B341FEA1026FE0 /* libRNVectorIcons.a in Frameworks */,
->>>>>>> Shelsey
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,11 +437,8 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
-<<<<<<< HEAD
-				6E42F13D44654E588FBE0BB4 /* libRNVectorIcons-tvOS.a in Frameworks */,
-=======
+
 				E4A94DDA082B4F7084737497 /* libRNVectorIcons-tvOS.a in Frameworks */,
->>>>>>> Shelsey
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,13 +612,9 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-<<<<<<< HEAD
-				1A63D9C0F76B42E68B432C9D /* RNGestureHandler.xcodeproj */,
-				318BFA387CB84C24906D2EB0 /* RNVectorIcons.xcodeproj */,
-=======
+
 				890A876EB3FE4810B644D144 /* RNGestureHandler.xcodeproj */,
 				561A9806AD4C4921841F0842 /* RNVectorIcons.xcodeproj */,
->>>>>>> Shelsey
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1318,13 +1293,9 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
-					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-=======
+
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
->>>>>>> Shelsey
 				);
 			};
 			name = Debug;
@@ -1352,13 +1323,9 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
-					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-=======
+
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
->>>>>>> Shelsey
 				);
 			};
 			name = Release;
@@ -1381,13 +1348,9 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
-					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-=======
+
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
->>>>>>> Shelsey
 				);
 			};
 			name = Debug;
@@ -1409,13 +1372,9 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
-					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-=======
+
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
->>>>>>> Shelsey
 				);
 			};
 			name = Release;
@@ -1451,13 +1410,9 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
-					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-=======
+
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
->>>>>>> Shelsey
 				);
 			};
 			name = Debug;
@@ -1493,13 +1448,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
-					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
->>>>>>> Shelsey
 				);
 			};
 			name = Release;
@@ -1534,13 +1484,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
-					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
->>>>>>> Shelsey
 				);
 			};
 			name = Debug;
@@ -1575,13 +1520,8 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-<<<<<<< HEAD
-					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
-=======
 					"$(SRCROOT)\..\node_modules\react-native-gesture-handler\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
->>>>>>> Shelsey
 				);
 			};
 			name = Release;
