@@ -9,7 +9,7 @@ import React, {Component} from 'react';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 
 import WelcomeScreen from './screens/WelcomeScreen';
-import SwipeScreen from './screens/SwipeScreen 2';
+import SwipeScreen from './screens/SwipeScreen';
 export default class App extends Component {
   render() {
     return (

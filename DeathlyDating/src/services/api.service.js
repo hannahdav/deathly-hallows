@@ -3,7 +3,7 @@
 let ApiService = class ApiService {
 	constructor() {
 		this.apiProtocol = 'https:';
-    this.apiHost = 'randomuser.me//api';
+    this.apiHost = 'randomuser.me/api';
 	}
 
 	/*
@@ -14,7 +14,7 @@ let ApiService = class ApiService {
   }
 
   getPersonByGender(gender) {
-    return `${this.apiLocation}//?gender=${gender}`;
+    return `${this.apiLocation}?gender=${gender}`;
   }
 
   getPerson(){
@@ -22,11 +22,11 @@ let ApiService = class ApiService {
   }   
 
   getPeopleByGender(gender) {
-    return `${this.apiLocation}//?gender=${gender}&results=1000`;
+    return `${this.apiLocation}?gender=${gender}&results=1000`;
   }
 
   getPeople() {
-    return `${this.apiLocation}//?results=1000`;
+    return `${this.apiLocation}?results=1000`;
 
   }
 }

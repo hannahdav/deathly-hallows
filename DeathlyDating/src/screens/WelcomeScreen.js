@@ -33,7 +33,7 @@ export default class WelcomeScreen extends Component {
 		return (
 			<Container>
 				<View>
-  					<StatusBar barStyle="light-content" />
+					<StatusBar barStyle="light-content" />
 				</View>
 				<Content contentContainerStyle={styles.container}>
 					<ImageBackground source={require('../resources/tree.png')} style={styles.tree}>
@@ -41,7 +41,7 @@ export default class WelcomeScreen extends Component {
 							<H1 style={styles.logo}>Deathly Dating </H1>
 							<Form>
 								<Item rounded style={styles.formItem}>
-									<Input 
+									<Input
 										autoFocus={true}
 										placeholder={'First Name'}
 										value={this.state.firstName}
@@ -56,7 +56,7 @@ export default class WelcomeScreen extends Component {
 									/>
 								</Item>
 								<Item rounded style={styles.formItem}>
-									<Input 
+									<Input
 										placeholder={'Email Address'}
 										value={this.state.email}
 										onChangeText={(val) => this.setState({ email: val })}
@@ -110,7 +110,7 @@ export default class WelcomeScreen extends Component {
 							</Form>
 							<Button primary
 								style={styles.saveButton}
-								onPress={() => this.props.navigation.navigate('Swipe', {gender: this.state.interestedIn})}
+								onPress={() => this.props.navigation.navigate('Swipe', { gender: this.state.interestedIn })}
 							>
 								<Text>Save</Text>
 							</Button>
