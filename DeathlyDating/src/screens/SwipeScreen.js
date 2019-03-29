@@ -6,7 +6,7 @@
  * @flow
  */
 import React, { Component } from 'react';
-import { View, Image, StatusBar } from 'react-native';
+import { View, Image, StatusBar, ImageBackground } from 'react-native';
 import {
     Container,
     Header,
@@ -18,20 +18,15 @@ import {
     Icon,
     Button,
     Content,
-    H1
+    H1,
+    Body,
+    Right
 } from 'native-base';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import personService from '../services/person.service';
-// import { Person } from '../models/person';
 import styles from '../styles/DeathlyStyles';
-
-const samples = [
-    'Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It’s not a story the Jedi would tell you. It’s a Sith legend.',
-    'Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying.',
-    'The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did.',
-    'Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.'
-];
+import bios from '../models/bios';
 
 export default class SwipeScreen extends Component {
     static navigationOptions = {
@@ -42,8 +37,21 @@ export default class SwipeScreen extends Component {
         super(props);
 
         this.state = {
-            data: []
-        }
+            data: [],
+        };
+
+        this.houses = ['gryffindor', 'hufflepuff', 'ravenclaw', 'slytherin'];
+        this.houseImages = [require('../resources/gryffindor.png'), require('../resources/hufflepuff.png'), require('../resources/ravenclaw.png'), require('../resources/slytherin.png')]
+        this.house = null;
+        this.houseImg = null;
+        this.bio = null;
+    }
+
+    updatePersonInfo() {
+        let hogHouse = Math.floor(Math.random() * this.houses.length)
+        this.house = this.houses[hogHouse];
+        this.houseImg = this.houseImages[hogHouse];
+        this.bio = bios[Math.floor(Math.random() * bios.length)]
     }
 
     render() {
@@ -60,53 +68,77 @@ export default class SwipeScreen extends Component {
                         </Button>
                     </Left>
                 </Header>
-                <Content style={{backgroundColor: '#1F0318', paddingBottom: 370, paddingTop: 10}}>
+                <Content contentContainerStyle={styles.containerSwipe}>
                     {(this.state.data.length > 0) ?
                         <DeckSwiper
                             ref={(ref) => this._deckSwiper = ref}
                             dataSource={this.state.data}
                             renderItem={item =>
-                                <Card style={{flex:1, backgroundColor:'#4b033d', borderRadius: 20}}>
-                                    <CardItem bordered style={{flex:1, backgroundColor:'#4b033d', borderTopLeftRadius: 20, borderTopRightRadius: 20}}>
-                                        <Image style={{height: 300, flex: 1}} source={{uri: item.img}}/>
+                                <Card style={styles.matchCard}>
+                                    <CardItem header bordered style={{ backgroundColor: '#ede7d9' }}>
+                                        <Left>
+                                            <Image source={this.houseImg} style={styles.houseLogo} />
+                                            <Body>
+                                                <Text style={styles.matchName}>
+                                                    {item.firstName + ' ' + item.lastName}
+                                                </Text>
+                                                <Text note>Age {item.age}</Text>
+                                            </Body>
+                                        </Left>
+
+                                        <Right>
+                                            <Text note style={styles.houseDesc}>
+                                                {this.house}
+                                            </Text>
+                                        </Right>
                                     </CardItem>
-                                    <CardItem style={{flex:1, backgroundColor:'#4b033d'}}>
-                                        <Icon name="heart" style={{color: '#ED4A6A'}}/>
-                                        <Text>
-                                            {item.firstName}
-                                            {" "}{item.lastName}
-                                            {" - "}{item.age}
-                                        </Text>
+                                    <CardItem cardBody bordered style={{ backgroundColor: '#ede7d9', }}>
+                                        <Content padder contentContainerStyle={styles.matchImgContainer}>
+                                            <Image style={styles.cardImg} source={{ uri: item.img }} />
+                                        </Content>
                                     </CardItem>
-                                    <CardItem style={{flex:2, backgroundColor:'#4b033d', borderBottomLeftRadius: 20, borderBottomRightRadius: 20}}>
-                                        <Text>
-                                            {item.bio}
-                                        </Text>
+                                    <CardItem bordered style={{ backgroundColor: '#ede7d9' }}>
+                                        <Body style={{ padding: 5 }}>
+                                            <Text note style={{ fontWeight: '600' }}>
+                                                Biography
+                                            </Text>
+                                            <Text>
+                                                {this.bio}
+                                            </Text>
+                                        </Body>
                                     </CardItem>
                                 </Card>}
-                            //onSwipeRight={() => }
-                            //onSwipeLeft={() => }
-                            //^^ Functions to call on swipe
+                            style={styles.deck}
+                            onSwipeLeft={() => { this.updatePersonInfo() }}
+                            onSwipeRight={() => { this.updatePersonInfo() }}
                         />
                         :
-                        <H1 style={[styles.logo, {fontSize: 25}]}>...Just a few more seconds</H1>
+                        <H1 style={[styles.logo, styles.loadingText]}>Hedwig is fetching you some matches...</H1>
                     }
-                </Content>
-                <Content contentContainerStyle={styles.container}>
                     <View>
                     </View>
                     <View style={styles.buttonContainer}>
-                        <Button warning style={styles.depulso} onPress={() => this._deckSwiper._root.swipeLeft()}>
-                            <AntDesign name='frowno' style={styles.buttonIcon}/>
-                            <Text note style={styles.buttonText}>
+                        <Button warning style={styles.depulso}
+                            onPress={() => {
+                                this._deckSwiper._root.swipeLeft();
+                                this.updatePersonInfo();
+                            }}
+                        >
+                            <AntDesign name='frowno' style={styles.buttonIcon} />
+                            <Text note style={styles.depulsoText}>
                                 Depulso
                             </Text>
                         </Button>
-                        <Button info style={styles.accio} onPress={() => this._deckSwiper._root.swipeRight()}>
-                        <AntDesign name='smileo' style={styles.buttonIcon}/>
-                            <Text note style={styles.buttonText}>
+                        <Button info style={styles.accio}
+                            onPress={() => {
+                                this._deckSwiper._root.swipeRight();
+                                this.updatePersonInfo();
+                            }}
+                        >
+                            <Text note style={styles.accioText}>
                                 Accio
                             </Text>
+                            <AntDesign name='smileo' style={styles.buttonIcon} />
                         </Button>
                     </View>
                 </Content>
@@ -116,35 +148,7 @@ export default class SwipeScreen extends Component {
 
     componentDidMount() {
         this._getPeople();
-    }
-
-    _renderPeople() {
-        if (this.state.data.length > 0) {
-            return (
-                <DeckSwiper
-                    ref={(ref) => this._deckSwiper = ref}
-                    dataSource={this.state.data}
-                    renderItem={item =>
-                        <Card>
-                            <CardItem cardBody>
-                                <Image style={{height: 300, flex: 1}} source={{uri: item.img}}/>
-                            </CardItem>
-                            <CardItem>
-                                <Icon name="heart" style={{color: '#ED4A6A'}}/>
-                                <Text>{item.firstName}{" "}{item.lastName}{" "}{item.age}{" "}{item.gender}</Text>
-                            </CardItem>
-                        </Card>}
-                    //onSwipeRight={() => }
-                    //onSwipeLeft={() => }
-                    //^^ Functions to call on swipe
-                />
-            );
-        }
-        else{
-            return (
-                <Text style={styles.depulso}>...Just a few more seconds</Text>
-            );
-        }
+        this.updatePersonInfo();
     }
 
     _getPeople() {

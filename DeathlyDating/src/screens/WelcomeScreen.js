@@ -35,7 +35,7 @@ export default class WelcomeScreen extends Component {
 				<View>
 					<StatusBar barStyle="light-content" />
 				</View>
-				<Content contentContainerStyle={styles.container}>
+				<Content contentContainerStyle={styles.containerWelcome}>
 					<ImageBackground source={require('../resources/tree.png')} style={styles.tree}>
 						<View style={{ padding: 30 }}>
 							<H1 style={styles.logo}>Deathly Dating </H1>

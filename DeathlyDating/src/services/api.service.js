@@ -4,6 +4,8 @@ let ApiService = class ApiService {
 	constructor() {
 		this.apiProtocol = 'https:';
     this.apiHost = 'randomuser.me/api';
+    this.kanyeHost = 'api.kanye.rest';
+    this.trumpHost = 'api.whatdoestrumpthink.com/api';
 	}
 
 	/*
@@ -14,7 +16,7 @@ let ApiService = class ApiService {
   }
 
   getPersonByGender(gender) {
-    return `${this.apiLocation}?gender=${gender}`;
+    return `${this.apiLocation}?gender=${gender}&nat=US`;
   }
 
   getPerson(){
@@ -22,11 +24,19 @@ let ApiService = class ApiService {
   }   
 
   getPeopleByGender(gender) {
-    return `${this.apiLocation}?results=50&gender=${gender}`;
+    return `${this.apiLocation}?results=50&gender=${gender}&nat=US`;
   }
 
   getPeople() {
     return `${this.apiLocation}?results=50`;
+  }
+
+  get fetchSomeKanye() {
+    return `${this.apiProtocol}//${this.kanyeHost}`;
+  }
+
+  get fetchSomeTrump() {
+    return `${this.apiProtocol}//${this.trumpHost}/v1/quotes/random`;
   }
 }
 

@@ -6,10 +6,14 @@ const styles = StyleSheet.create({
 		backgroundColor:  '#1f0318', //#110609,
 		color: 'white'
 	},
-	container: {
+	containerWelcome: {
 		flex: 1,
 		justifyContent: 'center',
-		backgroundColor:  '#1f0318' //#110609
+		backgroundColor:  '#1f0318', //#110609
+	},
+	containerSwipe: {
+		flex: 1,
+		backgroundColor:  '#1f0318', //#110609
 	},
 	logo: {
 		fontFamily: Platform.OS === 'ios' ? 'Cochin' : 'Serif',
@@ -69,24 +73,82 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.4
 	},
 	buttonContainer: { 
-		flexDirection: 'row', 
-		justifyContent: "center" 
+		flexDirection: "row", 
+		flex: 1, 
+		position: "absolute", 
+		bottom: 50, 
+		left: 0, 
+		right: 0, 
+		justifyContent: 'space-between', 
+		padding: 15
 	},
 	depulso: {
 		backgroundColor: '#563635', 
-		marginHorizontal: 10
+		shadowOffset: { width: 3, height: 3 },
+		color: 'white',
+		shadowOpacity: 0.4
+	},
+	depulsoText: {
+		fontWeight: '600', 
+		paddingLeft: -10
 	},
 	accio: {
-		backgroundColor: '#374a67'
+		backgroundColor: '#374a67',
+		shadowOffset: { width: 3, height: 3 },
+		color: 'white',
+		shadowOpacity: 0.4
+	},
+	accioText: {
+		fontWeight: '600', 
+		paddingRight: -10
 	},
 	buttonIcon: {
 		color: 'white',
 		fontSize: 25,
-		paddingHorizontal: 10
+		paddingHorizontal: 15
 	},
-	buttonText: {
+	deck: {
+		flex: 1,
+	},
+	matchCard: {
+		top: 10,
+		maxHeight: 700,
+		overflow: 'scroll',
+	},
+	cardImg: { 
+		flex: 1,
+		height: 300,
+		width: 300,   
+		borderColor: '#f4f2eb',
+		borderWidth: 7,
+		borderRadius: 2
+	},
+	matchImgContainer: {
+		alignItems: 'center', 
+		shadowOffset: {width: 2, height: 2}, 
+		shadowOpacity: 0.25, 
+		shadowRadius: 5 
+	},
+	matchName: { 
+		textTransform: 'capitalize', 
+		fontSize: 16, 
 		fontWeight: '600', 
-		paddingLeft: -10
+		color: '#62929e' 
+	},
+	houseLogo: { 
+		width: 50, 
+		height: 50, 
+		opacity: 0.78 
+	},
+	houseDesc: { 
+		textTransform: 'capitalize', 
+		fontSize: 16 
+	},
+	loadingText: { 
+		top: '30%', 
+		fontSize: 30, 
+		lineHeight: 45, 
+		flexWrap: 'wrap', 
 	}
 });
 export default styles;
