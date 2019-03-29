@@ -26,7 +26,6 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import personService from '../services/person.service';
 import styles from '../styles/DeathlyStyles';
-import bios from '../models/bios';
 
 export default class SwipeScreen extends Component {
     static navigationOptions = {
@@ -39,19 +38,6 @@ export default class SwipeScreen extends Component {
         this.state = {
             data: [],
         };
-
-        this.houses = ['gryffindor', 'hufflepuff', 'ravenclaw', 'slytherin'];
-        this.houseImages = [require('../resources/gryffindor.png'), require('../resources/hufflepuff.png'), require('../resources/ravenclaw.png'), require('../resources/slytherin.png')]
-        this.house = null;
-        this.houseImg = null;
-        this.bio = null;
-    }
-
-    updatePersonInfo() {
-        let hogHouse = Math.floor(Math.random() * this.houses.length)
-        this.house = this.houses[hogHouse];
-        this.houseImg = this.houseImages[hogHouse];
-        this.bio = bios[Math.floor(Math.random() * bios.length)]
     }
 
     render() {
@@ -77,7 +63,7 @@ export default class SwipeScreen extends Component {
                                 <Card style={styles.matchCard}>
                                     <CardItem header bordered style={{ backgroundColor: '#ede7d9' }}>
                                         <Left>
-                                            <Image source={this.houseImg} style={styles.houseLogo} />
+                                            <Image source={item.houseImg} style={styles.houseLogo} />
                                             <Body>
                                                 <Text style={styles.matchName}>
                                                     {item.firstName + ' ' + item.lastName}
@@ -88,7 +74,7 @@ export default class SwipeScreen extends Component {
 
                                         <Right>
                                             <Text note style={styles.houseDesc}>
-                                                {this.house}
+                                                {item.house}
                                             </Text>
                                         </Right>
                                     </CardItem>
@@ -103,14 +89,14 @@ export default class SwipeScreen extends Component {
                                                 Biography
                                             </Text>
                                             <Text>
-                                                {this.bio}
+                                                {item.bio}
                                             </Text>
                                         </Body>
                                     </CardItem>
                                 </Card>}
                             style={styles.deck}
-                            onSwipeLeft={() => { this.updatePersonInfo() }}
-                            onSwipeRight={() => { this.updatePersonInfo() }}
+                            //onSwipeLeft={() => { this.updatePersonInfo() }}
+                            //onSwipeRight={() => { this.updatePersonInfo() }}
                         />
                         :
                         <H1 style={[styles.logo, styles.loadingText]}>Hedwig is fetching you some matches...</H1>
@@ -121,7 +107,6 @@ export default class SwipeScreen extends Component {
                         <Button warning style={styles.depulso}
                             onPress={() => {
                                 this._deckSwiper._root.swipeLeft();
-                                this.updatePersonInfo();
                             }}
                         >
                             <AntDesign name='frowno' style={styles.buttonIcon} />
@@ -132,7 +117,6 @@ export default class SwipeScreen extends Component {
                         <Button info style={styles.accio}
                             onPress={() => {
                                 this._deckSwiper._root.swipeRight();
-                                this.updatePersonInfo();
                             }}
                         >
                             <Text note style={styles.accioText}>
@@ -148,7 +132,6 @@ export default class SwipeScreen extends Component {
 
     componentDidMount() {
         this._getPeople();
-        this.updatePersonInfo();
     }
 
     _getPeople() {

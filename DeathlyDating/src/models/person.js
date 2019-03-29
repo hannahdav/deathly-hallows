@@ -9,12 +9,11 @@
  Gender
  */
 
-const samples = [
-    'Did you ever hear the tragedy of Darth Plagueis The Wise? I thought not. It’s not a story the Jedi would tell you. It’s a Sith legend.',
-    'Darth Plagueis was a Dark Lord of the Sith, so powerful and so wise he could use the Force to influence the midichlorians to create life… He had such a knowledge of the dark side that he could even keep the ones he cared about from dying.',
-    'The dark side of the Force is a pathway to many abilities some consider to be unnatural. He became so powerful… the only thing he was afraid of was losing his power, which eventually, of course, he did.',
-    'Unfortunately, he taught his apprentice everything he knew, then his apprentice killed him in his sleep. Ironic. He could save others from death, but not himself.'
-];
+import bios from '../models/bios';
+
+
+const houses = ['gryffindor', 'hufflepuff', 'ravenclaw', 'slytherin'];
+const houseImages = [require('../resources/gryffindor.png'), require('../resources/hufflepuff.png'), require('../resources/ravenclaw.png'), require('../resources/slytherin.png')];
 
 export class Person {
     constructor(firstName, lastName, img, age, gender, id) {
@@ -24,7 +23,10 @@ export class Person {
         this.age = age;
         this.gender = gender;
         this.id = id;
-        this.bio = samples[this.age % 4]
+        this.bio = bios[Math.floor(Math.random() * bios.length)];
+        let hogHouse = Math.floor(Math.random() * houses.length);
+        this.house = houses[hogHouse];
+        this.houseImg = houseImages[hogHouse];
     }
 
     getImg() {
